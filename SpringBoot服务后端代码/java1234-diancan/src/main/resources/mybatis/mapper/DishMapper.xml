@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java1234.mapper.DishMapper">
+
+    <resultMap type="com.java1234.entity.Dish" id="DishResult">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="image" column="image"/>
+        <result property="category_id" column="category_id"/>
+        <result property="price" column="price"/>
+        <result property="unit_id" column="unit_id"/>
+        <result property="state" column="state"/>
+        <result property="detail" column="detail"/>
+        <result property="origin" column="origin"/>
+        <result property="stock" column="stock"/>
+        <association property="type" column="category_id" select="com.java1234.mapper.CategoryMapper.findById"></association>
+    </resultMap>
+
+    <select id="list" parameterType="Map" resultMap="DishResult">
+        select * from t_dish
+        <where>
+            <if test="categoryId!=null">
+                and category_id = #{categoryId}
+            </if>
+        </where>
+        order by id asc
+        <if test="start!=null and pageSize!=null">
+            limit #{start},#{pageSize}
+        </if>
+
+    </select>
+
+    <select id="getTotal" parameterType="Map" resultType="Long">
+        select count(*) from t_dish
+        <where>
+            <if test="categoryId!=null">
+                and category_id = #{categoryId}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

@@ -1,0 +1,107 @@
+{
+	"pages": [
+		{
+			"path": "pages/saoma/saoma",
+			"style": {
+				"navigationBarTitleText": "扫码点餐",
+				"navigationBarBackgroundColor": "#fefefe"
+			}
+		},
+		{
+			"path": "pages/home-page/page",
+			"style": {
+				"navigationBarTitleText": "123火锅店",
+				"navigationBarBackgroundColor": "#f7d45f"
+			}
+		},
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "选择人数",
+				"navigationBarBackgroundColor": "#fefefe",
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my-order/my-order",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"navigationBarBackgroundColor": "#f7d45f"
+			}
+		},
+		{
+			"path": "pages/my-profile/my-profile",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationBarBackgroundColor": "#f7d45f"
+			}
+		},
+		{
+			"path": "pages/order-details/details",
+			"style": {
+				"navigationBarTitleText": "订单详情",
+				"navigationBarBackgroundColor": "#f7d45f"
+			}
+		},
+		{
+			"path": "pages/order-review/order-review",
+			"style": {
+				"navigationBarTitleText": "订单评价",
+				"navigationBarBackgroundColor": "#f7d45f"
+			}
+		},
+		{
+			"path": "pages/review-list/review-list",
+			"style": {
+				"navigationBarTitleText": "我的评价",
+				"navigationBarBackgroundColor": "#f7d45f"
+			}
+		},
+		{
+			"path": "pages/feedback-submit/feedback-submit",
+			"style": {
+				"navigationBarTitleText": "意见反馈",
+				"navigationBarBackgroundColor": "#f7d45f"
+			}
+		},
+		{
+			"path": "pages/service-request/service-request",
+			"style": {
+				"navigationBarTitleText": "服务请求",
+				"navigationBarBackgroundColor": "#f7d45f"
+			}
+		}
+	],
+	"tabBar": {
+		"color": "#999999",
+		"selectedColor": "#f7d45f",
+		"backgroundColor": "#ffffff",
+		"borderStyle": "white",
+		"list": [
+			{
+				"pagePath": "pages/home-page/page",
+				"text": "点餐",
+				"iconPath": "static/tab/点餐.png",
+				"selectedIconPath": "static/tab/点餐.png"
+			},
+			{
+				"pagePath": "pages/my-order/my-order",
+				"text": "订单",
+				"iconPath": "static/tab/订单.png",
+				"selectedIconPath": "static/tab/订单.png"
+			},
+			{
+				"pagePath": "pages/my-profile/my-profile",
+				"text": "我的",
+				"iconPath": "static/tab/我的-1.png",
+				"selectedIconPath": "static/tab/我的-1.png"
+			}
+		]
+	},
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}

@@ -1,0 +1,15 @@
+/* 主页定位 */
+.ordering{
+position: absolute;
+top: 50px;
+left: 200px;
+right: 0;
+padding: 10px;
+}
+
+/* 没有数据的提示 */
+.nodatas{
+text-align: center;
+color: #999;
+padding-top: 200px;
+}
