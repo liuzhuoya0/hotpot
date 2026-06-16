@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/saoma/saoma",
+    "pages/home-page/page",
+    "pages/index/index",
+    "pages/my-order/my-order",
+    "pages/my-profile/my-profile",
+    "pages/order-details/details",
+    "pages/order-review/order-review",
+    "pages/review-list/review-list",
+    "pages/feedback-submit/feedback-submit",
+    "pages/service-request/service-request"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#f7d45f",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home-page/page",
+        "text": "点餐",
+        "iconPath": "static/tab/点餐.png",
+        "selectedIconPath": "static/tab/点餐.png"
+      },
+      {
+        "pagePath": "pages/my-order/my-order",
+        "text": "订单",
+        "iconPath": "static/tab/订单.png",
+        "selectedIconPath": "static/tab/订单.png"
+      },
+      {
+        "pagePath": "pages/my-profile/my-profile",
+        "text": "我的",
+        "iconPath": "static/tab/我的-1.png",
+        "selectedIconPath": "static/tab/我的-1.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

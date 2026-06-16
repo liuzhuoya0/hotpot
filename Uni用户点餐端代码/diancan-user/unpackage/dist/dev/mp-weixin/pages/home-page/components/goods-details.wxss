@@ -1,0 +1,106 @@
+/* ----------------弹窗 */
+.details-back.data-v-600e5a46{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.6);
+}
+.goods-details.data-v-600e5a46{
+	height: 850rpx;
+	background-color: #fefefe;
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 120rpx;
+	border-top-left-radius: 20rpx;
+	border-top-right-radius: 20rpx;
+	overflow-y: auto;
+}
+.goods-image.data-v-600e5a46{
+	width: 100%;
+	height: 280rpx;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #f8f8f8;
+}
+.goods-image image.data-v-600e5a46:nth-child(1){
+	display: block;
+	width: 100%;
+	height: 280rpx;
+	border-top-left-radius: 20rpx;
+	border-top-right-radius: 20rpx;
+}
+.goods-image image.data-v-600e5a46:nth-child(2){
+	display: block;
+	width: 50rpx;
+	height: 50rpx;
+	position: absolute;
+	top: 20rpx;
+	right: 20rpx;
+	border-radius: 50%;
+}
+.details-padd.data-v-600e5a46{
+	padding: 20rpx 20rpx 0 20rpx;
+}
+.describe.data-v-600e5a46{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.details-quantity image.data-v-600e5a46{
+	width: 50rpx;
+	height: 50rpx;
+	display: block;
+}
+.details-quantity.data-v-600e5a46{
+	display: flex;
+	align-items: center;
+	width: 200rpx;
+	justify-content: space-between;
+}
+.details-name.data-v-600e5a46{
+	font-size: 35rpx;
+	font-weight: bold;
+}
+.details-Thinning.data-v-600e5a46{
+	font-size: 30rpx;
+	color: #a4a4a4;
+	padding: 20rpx 0;
+}
+.details-unit-price.data-v-600e5a46{
+	font-size: 30rpx;
+	color: #ec702d;
+	display: flex;
+	align-items: baseline;
+}
+.details-unit-price text.data-v-600e5a46:nth-child(2){
+	font-size: 35rpx;
+}
+.details-unit-price text.data-v-600e5a46:nth-child(3){
+	color: #999999 !important;
+}
+.details-info.data-v-600e5a46{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 15rpx 0;
+	border-bottom: 1px solid #f0f0f0;
+}
+.info-label.data-v-600e5a46{
+	font-size: 28rpx;
+	color: #666;
+	font-weight: bold;
+	white-space: nowrap;
+}
+.info-value.data-v-600e5a46{
+	font-size: 26rpx;
+	color: #333;
+	margin-left: 10rpx;
+	line-height: 1.6;
+	flex: 1;
+}
+

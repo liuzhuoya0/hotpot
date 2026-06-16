@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java1234.mapper.OrderMapper">
+
+    <resultMap type="com.java1234.entity.Order" id="OrderResult">
+        <id property="id" column="id"/>
+        <result property="table_id" column="table_id"/>
+        <result property="total_price" column="total_price"/>
+        <result property="order_time" column="order_time"/>
+        <result property="pay_state" column="pay_state"/>
+        <result property="review_state" column="review_state"/>
+        <result property="order_status" column="order_status"/>
+        <result property="number_of_diners" column="number_of_diners"/>
+    </resultMap>
+
+    <resultMap type="com.java1234.entity.SalesVolume" id="SalesVolumeResult">
+        <result property="time" column="TIME"/>
+        <result property="sales_volume" column="sales_volume"/>
+    </resultMap>
+
+    <resultMap type="com.java1234.entity.HotDish" id="HotDishResult">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="image" column="image"/>
+        <result property="totalQuantity" column="total_quantity"/>
+        <result property="totalSales" column="total_sales"/>
+    </resultMap>
+
+
+    <select id="list" parameterType="Map" resultMap="OrderResult">
+        select * from t_order
+        <where>
+            <if test="pay_state!=null">
+                and pay_state = #{pay_state}
+            </if>
+            <if test="table_id!=null">
+                and table_id = #{table_id}
+            </if>
+            <if test="startDate!=null and startDate!=''">
+                and DATE(order_time) &gt;= #{startDate}
+            </if>
+            <if test="endDate!=null and endDate!=''">
+                and DATE(order_time) &lt;= #{endDate}
+            </if>
+        </where>
+        order by order_time desc
+        <if test="start!=null and pageSize!=null">
+            limit #{start},#{pageSize}
+        </if>
+
+    </select>
+
+    <select id="getTotal" parameterType="Map" resultType="Long">
+        select count(*) from t_order
+        <where>
+            <if test="pay_state!=null">
+                and pay_state = #{pay_state}
+            </if>
+            <if test="startDate!=null and startDate!=''">
+                and DATE(order_time) &gt;= #{startDate}
+            </if>
+            <if test="endDate!=null and endDate!=''">
+                and DATE(order_time) &lt;= #{endDate}
+            </if>
+        </where>
+    </select>
+
+    <select id="getSalesVolume" parameterType="Map" resultMap="SalesVolumeResult">
+        SELECT DATE_FORMAT(order_time, '%Y-%m-%d') AS TIME ,SUM(total_price) AS sales_volume 
+        FROM t_order 
+        WHERE pay_state=1
+        <if test="startDate!=null and startDate!=''">
+            and DATE(order_time) &gt;= #{startDate}
+        </if>
+        <if test="endDate!=null and endDate!=''">
+            and DATE(order_time) &lt;= #{endDate}
+        </if>
+        GROUP BY TIME 
+        ORDER BY TIME 
+        <if test="startDate==null or startDate=='' or endDate==null or endDate==''">
+            DESC LIMIT 0,7
+        </if>
+    </select>
+
+    <select id="getHotDishes" parameterType="Map" resultMap="HotDishResult">
+        SELECT 
+            d.id,
+            d.name,
+            d.image,
+            SUM(od.quantity) AS total_quantity,
+            SUM(od.quantity * od.price) AS total_sales
+        FROM t_order_detail od
+        LEFT JOIN t_dish d ON od.dish_id = d.id
+        LEFT JOIN t_order o ON od.order_id = o.id
+        <where>
+            <if test="startDate!=null and startDate!=''">
+                and DATE(o.order_time) &gt;= #{startDate}
+            </if>
+            <if test="endDate!=null and endDate!=''">
+                and DATE(o.order_time) &lt;= #{endDate}
+            </if>
+        </where>
+        GROUP BY d.id, d.name, d.image
+        ORDER BY total_quantity DESC
+        LIMIT 10
+    </select>
+
+</mapper>
